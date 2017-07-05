@@ -29,6 +29,11 @@ URL: <input type="text" id="image_url" name="image_url" value="" size="80" reado
 </form>
 </div>
 
+<div style="font-size: small">
+Powered by <a href="https://cloudinary.com"><img src="https://res.cloudinary.com/webspeedtest/image/asset/cloudinary_logo_text.svg" style="max-height:2em; max-width:8em; vertical-align: bottom;"></a>
+</div>
+
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -40,7 +45,8 @@ URL: <input type="text" id="image_url" name="image_url" value="" size="80" reado
         }
         var image_url = 'https://res.cloudinary.com/jon/'
         + effect
-        + '/g_north,y_10,co_white,l_text:Pacifico_60:'
+        + 'l_cld_logo,g_south_east,e_outline:2:200,co_black,w_100'
+        + '/g_north,y_10,co_white,bo_2px_solid_black,l_text:Pacifico_60_stroke:'
         + encodeURIComponent(document.getElementById("postcard_text").value)
         + '/f_auto,q_auto/'
         + image_id;
