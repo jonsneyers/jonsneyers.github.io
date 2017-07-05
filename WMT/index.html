@@ -16,8 +16,10 @@ img { max-width: 100%; }
 </p>
 
 <form>
-<input type="text" id="postcard_text" name="postcard_text" value="Greetings from Wallifornia!" size="50">
-<a href="#" id="update_text" class="cloudinary-button">Update text</a>
+<input type="text" id="postcard_text" name="postcard_text" value="Greetings from Wallifornia!" size="50"><br>
+<input type="radio" name="postcard_effect" value="photo" id="e2" checked> Default style
+<input type="radio" name="postcard_effect" value="cartoonify" id="e1"> Cartoonify style
+<a href="#" id="update_text" class="cloudinary-button">Update</a>
 </form>
 
 <div id="result_postcard" style="display: none">
@@ -32,8 +34,12 @@ URL: <input type="text" id="image_url" name="image_url" value="" size="80" reado
 <script type="text/javascript">
  var image_id;
  function show_image() {
-        var image_url = 'https://res.cloudinary.com/jon/' +
-        'w_400,h_400,g_auto:faces,c_fill,e_improve/e_vignette/u_WMT_bg,w_800,g_center,x_-150/l_WMT_logo,g_west,w_250,x_30'
+        var effect = 'w_400,h_400,g_auto:faces,c_fill,e_improve/e_vignette/u_WMT_bg,w_800,g_center,x_-150/l_WMT_logo,g_west,w_250,x_30';
+        if (document.getElementById("e1").checked) {
+            effect = 'w_800,h_450,g_auto:faces,c_fill,e_cartoonify/u_WMT_bg,w_800,e_screen,o_70/l_WMT_logo,g_south_west,w_150,x_10,y_10';
+        }
+        var image_url = 'https://res.cloudinary.com/jon/'
+        + effect
         + '/g_north,y_10,co_white,l_text:Pacifico_60:'
         + encodeURIComponent(document.getElementById("postcard_text").value)
         + '/f_auto,q_auto/'
